@@ -1,0 +1,75 @@
+<%- include('layout/header') %>
+
+<main class="max-w-7xl mx-auto px-4 pt-20 pb-12">
+
+    <!-- Hero Section -->
+    <section class="relative w-[100%] h-[500px] bg-gray-100 flex items-center justify-center">
+        <img src="/images/image1.png" alt="Sports Action" class="absolute inset-0 w-full h-full object-cover opacity-80">
+        <div class="relative z-10 text-center text-white">
+            <h1 class="text-5xl font-bold drop-shadow-lg">Gear Up for Victory!</h1>
+            <p class="mt-4 text-lg drop-shadow-md">Explore premium sports equipment for peak performance</p><br>
+            <a href="/shop" class="bg-red-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-red-700 transition">
+                Shop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="mt-16 text-center">
+        <h2 class="text-3xl font-bold text-gray-800">Shop by Category</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            <a href="/shop?category=football" class="bg-white shadow-md p-6 rounded-lg hover:scale-105 transition">
+                <img src="/images/category-2.jpg" alt="Football" class="h-32 mx-auto">
+                <h3 class="mt-4 text-xl font-semibold text-gray-700">Sneakers</h3>
+            </a>
+            <a href="/shop?category=basketball" class="bg-white shadow-md p-6 rounded-lg hover:scale-105 transition">
+                <img src="/images/category-3.jpg" alt="Basketball" class="h-32 mx-auto">
+                <h3 class="mt-4 text-xl font-semibold text-gray-700">Clothing</h3>
+            </a>
+            <a href="/shop?category=fitness" class="bg-white shadow-md p-6 rounded-lg hover:scale-105 transition">
+                <img src="/images/product-9.jpg" alt="Fitness" class="h-32 mx-auto">
+                <h3 class="mt-4 text-xl font-semibold text-gray-700">Watches</h3>
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="mt-16">
+        <h2 class="text-3xl font-bold text-gray-800 text-center">Featured Products</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <% products.forEach(product => { %>
+                <div class="bg-white shadow-md rounded-lg p-4 hover:scale-105 transition">
+                    <img src="<%= product.image %>" alt="<%= product.name %>" class="w-full h-48 object-cover rounded-md">
+                    <h3 class="text-lg font-semibold text-gray-800 mt-4 text-center"><%= product.name %></h3>
+                    <span class="text-xl font-bold text-red-500 block mt-2 text-center">$<%= product.price %></span>
+                    <a href="/shop/<%= product.id %>" class="block bg-red-500 text-white px-4 py-2 rounded-lg text-center mt-4 hover:bg-red-700">View Product</a>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="mt-16 text-center bg-gray-50 py-12">
+        <h2 class="text-3xl font-bold text-gray-800">What Our Customers Say</h2>
+        <div class="mt-8 flex flex-col md:flex-row gap-6 justify-center">
+            <div class="bg-white shadow-md p-6 rounded-lg w-80">
+                <p class="text-gray-700">"Absolutely love the quality of these products! Perfect for my training sessions."</p>
+                <span class="block mt-4 font-semibold text-gray-800">– John D.</span>
+            </div>
+            <div class="bg-white shadow-md p-6 rounded-lg w-80">
+                <p class="text-gray-700">"Fast delivery and amazing customer support. Highly recommended!"</p>
+                <span class="block mt-4 font-semibold text-gray-800">– Sarah W.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="mt-16 text-center">
+        <h2 class="text-3xl font-bold text-gray-800">Ready to Elevate Your Game?</h2>
+        <p class="mt-4 text-gray-600">Find the best sports equipment tailored to your needs.</p>
+        <a href="/shop" class="mt-6 inline-block bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-all">Start Shopping</a>
+    </section>
+
+</main>
+
+<%- include('layout/footer') %>

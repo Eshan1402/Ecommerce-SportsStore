@@ -1,0 +1,52 @@
+<%- include('layout/header') %>
+
+<main class="max-w-7xl mx-auto px-4 pt-20 pb-12">
+    <section class="text-center my-8">
+        <h1 class="text-4xl font-bold text-gray-800">Sports & Athletic Equipment</h1>
+        <p class="mt-4 text-gray-600">Professional gear for athletes and sports enthusiasts</p>
+    </section>
+
+    <section class="mt-12">
+        <div class="products-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <% products.forEach(product => { %>
+                <div class="product-card bg-white shadow-md rounded-lg p-4 transition-transform hover:scale-105">
+                    <img src="<%= product.image %>" alt="<%= product.name %>" class="w-full h-48 object-cover rounded-md">
+                    
+                    <h2 class="text-lg font-semibold text-gray-800 mt-4"><%= product.name %></h2>
+                    
+                    <span class="text-xl font-bold text-red-500 block mt-2">$<%= product.price %></span>
+
+                    <!-- Button Group -->
+                    <div class="mt-4 flex space-x-4">
+                        <!-- Add to Cart Button -->
+                        <form action="/cart/add/<%= product.id %>" method="POST" class="w-1/2">
+                            <button type="submit" 
+                                class="bg-red-500 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 hover:bg-red-700 w-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="8" cy="21" r="1"></circle>
+                                    <circle cx="19" cy="21" r="1"></circle>
+                                    <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+                                </svg>
+                                <span>Add to Cart</span>
+                            </button>
+                        </form>
+
+                        <!-- Buy Now Button -->
+                        <form action="/checkout/<%= product.id %>" method="POST" class="w-1/2">
+                            <button type="submit" 
+                                class="bg-red-500 text-white px-4 py-2 rounded-lg flex items-center justify-center space-x-2 hover:bg-red-700 w-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5l7 7-7 7"></path>
+                                </svg>
+                                <span>Buy Now</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+</main>
+
+<%- include('layout/footer') %>

@@ -1,0 +1,32 @@
+<%- include('layout/header') %>
+
+<main class="max-w-4xl mx-auto px-4 pt-20 pb-12 text-center">
+    <h1 class="text-3xl font-bold text-green-600">Order Confirmed!</h1>
+    <p class="mt-4 text-gray-600">Thank you, <%= orderDetails.name %>! Your order has been placed successfully.</p>
+
+    <div class="bg-white shadow-md rounded-lg p-6 mt-6 text-left">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Shipping Details</h2>
+        <p><strong>Address:</strong> <%= orderDetails.address %></p>
+        <p><strong>Payment Method:</strong> <%= orderDetails.paymentMethod.replace('_', ' ').toUpperCase() %></p>
+    </div>
+
+    <div class="bg-white shadow-md rounded-lg p-6 mt-6 text-left">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Order Summary</h2>
+        <% orderDetails.cartItems.forEach(item => { %>
+            <div class="flex justify-between border-b py-2">
+                <span><%= item.name %> (x<%= item.quantity %>)</span>
+                <span class="font-bold">$<%= (item.price * item.quantity).toFixed(2) %></span>
+            </div>
+        <% }); %>
+        <div class="mt-4 flex justify-between text-lg font-semibold">
+            <span>Total</span>
+            <span class="text-red-500">$<%= orderDetails.total %></span>
+        </div>
+    </div>
+
+    <a href="/" class="mt-6 inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+        Return to Home
+    </a>
+</main>
+
+<%- include('layout/footer') %>

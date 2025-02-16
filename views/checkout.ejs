@@ -1,0 +1,43 @@
+<%- include('layout/header') %>
+
+<main class="max-w-4xl mx-auto px-4 pt-20 pb-12">
+    <h1 class="text-3xl font-bold text-gray-800 text-center mb-8">Checkout</h1>
+
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-xl font-semibold text-gray-800 mb-4">Order Summary</h2>
+
+        <% cartItems.forEach(item => { %>
+            <div class="flex justify-between border-b py-2">
+                <span><%= item.name %> (x<%= item.quantity %>)</span>
+                <span class="font-bold">$<%= (item.price * item.quantity).toFixed(2) %></span>
+            </div>
+        <% }); %>
+
+        <div class="mt-4 flex justify-between text-lg font-semibold">
+            <span>Total</span>
+            <span class="text-red-500">$<%= total %></span>
+        </div>
+    </div>
+
+    <!-- Checkout Form -->
+    <form action="/checkout/complete" method="POST" class="space-y-4">
+        <h2 class="text-lg font-semibold">Shipping Details</h2>
+    
+        <input type="text" name="street" placeholder="Street Address" required class="w-full p-2 border rounded">
+        <input type="text" name="city" placeholder="City" required class="w-full p-2 border rounded">
+        <input type="text" name="state" placeholder="State" required class="w-full p-2 border rounded">
+        <input type="text" name="zip" placeholder="Zip Code" required class="w-full p-2 border rounded">
+        <input type="text" name="country" placeholder="Country" required class="w-full p-2 border rounded">
+    
+        <h2 class="text-lg font-semibold mt-4">Payment Method</h2>
+        <select name="paymentMethod" required class="w-full p-2 border rounded">
+            <option value="Credit Card">Credit Card</option>
+            <option value="PayPal">PayPal</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+        </select>
+    
+        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded w-full hover:bg-red-700">Complete Order</button>
+    </form>
+</main>
+
+<%- include('layout/footer') %>
