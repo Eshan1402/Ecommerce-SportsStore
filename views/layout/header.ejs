@@ -3,62 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Store - Premium Equipment</title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/js/theme.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2563eb',
+                        primary: '#667eea',
+                        secondary: '#f093fb',
+                        accent: '#4facfe',
+                        success: '#43e97b',
+                        warning: '#fa709a',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-gray-50">
-    <nav class="bg-white shadow-lg fixed w-full z-50">
+<body>
+    <nav class="fixed w-full z-50">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
+            <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="/" class="flex items-center hover:text-red-500">
-                        <img src="/images/logo.png" alt="Sports Store Logo" class="h-12">
+                    <a href="/" class="flex items-center group">
+                        <div class="relative">
+                            <img src="/images/logo.png" alt="Sports Store Logo" class="h-14 transition-transform group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full opacity-0 group-hover:opacity-20 transition-opacity"></div>
+                        </div>
+                        <!-- <span class="ml-3 text-2xl font-bold text-gradient">SportsStore</span> -->
                     </a>
                 </div>
     
-                <!-- Right Section: Navigation Links -->
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="nav-link group">
+                        <i class="fas fa-home mr-2"></i>
+                        <span>Home</span>
+                        <div class="nav-underline"></div>
+                    </a>
+                    <a href="/shop" class="nav-link group">
+                        <i class="fas fa-shopping-bag mr-2"></i>
+                        <span>Shop</span>
+                        <div class="nav-underline"></div>
+                    </a>
+                    <a href="/about" class="nav-link group">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <span>About</span>
+                        <div class="nav-underline"></div>
+                    </a>
+                </div>
+
+                <!-- User Actions -->
                 <div class="flex items-center space-x-6">
-                    <a href="/" class="text-gray-600 hover:text-red-500">Home</a>
-                    <a href="/shop" class="text-gray-600 hover:text-red-500">Shop</a>
-                    <a href="/about" class="text-gray-600 hover:text-red-500">About</a>
-    
                     <% if (!user) { %>
-                        <a href="/signup" class="text-gray-600 hover:text-red-500">Sign Up</a>
-                        <a href="/login" class="text-gray-600 hover:text-red-500">Login</a>
+                        <a href="/signup" class="btn-secondary">
+                            <i class="fas fa-user-plus mr-2"></i>
+                            Sign Up
+                        </a>
+                        <a href="/login" class="btn-primary">
+                            <i class="fas fa-sign-in-alt mr-2"></i>
+                            Login
+                        </a>
                     <% } else { %>
-                        <span class="text-gray-600">Welcome, <%= user.username %>!</span>
-                        <a href="/logout" class="text-gray-600 hover:text-red-500">Logout</a>
+                        <div class="flex items-center space-x-4">
+                            <div class="text-center">
+                                <div class="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold">
+                                    <%= user.username.charAt(0).toUpperCase() %>
+                                </div>
+                                <span class="text-sm text-gray-600">Welcome, <%= user.username %>!</span>
+                            </div>
+                            <a href="/orders" class="btn-primary">
+                                <i class="fas fa-box mr-2"></i>
+                                My Orders
+                            </a>
+                            <a href="/logout" class="btn-accent">
+                                <i class="fas fa-sign-out-alt mr-2"></i>
+                                Logout
+                            </a>
+                        </div>
                     <% } %>
     
                     <!-- Cart Icon -->
-                    <a href="/cart" class="text-gray-600 hover:text-primary relative">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="8" cy="21" r="1"></circle>
-                            <circle cx="19" cy="21" r="1"></circle>
-                            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
-                        </svg>
+                    <a href="/cart" class="relative group">
+                        <div class="w-12 h-12 bg-gradient-to-r from-warning to-secondary rounded-full flex items-center justify-center text-white text-xl transition-transform group-hover:scale-110">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
                         <% if (cartItemCount > 0) { %>
-                            <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">
+                            <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold animate-pulse">
                                 <%= cartItemCount %>
                             </span>
                         <% } %>
                     </a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden md:hidden">
+            <div class="px-4 py-6 space-y-4">
+                <a href="/" class="mobile-nav-link">
+                    <i class="fas fa-home mr-3"></i>
+                    Home
+                </a>
+                <a href="/shop" class="mobile-nav-link">
+                    <i class="fas fa-shopping-bag mr-3"></i>
+                    Shop
+                </a>
+                <a href="/about" class="mobile-nav-link">
+                    <i class="fas fa-info-circle mr-3"></i>
+                    About
+                </a>
+                <% if (!user) { %>
+                    <a href="/signup" class="mobile-nav-link">
+                        <i class="fas fa-user-plus mr-3"></i>
+                        Sign Up
+                    </a>
+                    <a href="/login" class="mobile-nav-link">
+                        <i class="fas fa-sign-in-alt mr-3"></i>
+                        Login
+                    </a>
+                <% } else { %>
+                    <a href="/orders" class="mobile-nav-link">
+                        <i class="fas fa-box mr-3"></i>
+                        My Orders
+                    </a>
+                    <a href="/logout" class="mobile-nav-link">
+                        <i class="fas fa-sign-out-alt mr-3"></i>
+                        Logout
+                    </a>
+                <% } %>
             </div>
         </div>
     </nav>
+
+    <style>
+        .nav-link {
+            @apply text-gray-700 hover:text-primary font-medium transition-all duration-300 relative flex items-center;
+        }
+        
+        .nav-underline {
+            @apply absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300;
+        }
+        
+        .nav-link:hover .nav-underline {
+            @apply w-full;
+        }
+        
+        .mobile-menu-btn {
+            @apply p-2 rounded-lg bg-white bg-opacity-20 backdrop-blur-sm;
+        }
+        
+        .mobile-menu {
+            @apply bg-white bg-opacity-95 backdrop-blur-lg border-t border-gray-200;
+        }
+        
+        .mobile-nav-link {
+            @apply block py-3 px-4 text-gray-700 hover:text-primary hover:bg-gray-50 rounded-lg transition-all duration-300;
+        }
+    </style>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>

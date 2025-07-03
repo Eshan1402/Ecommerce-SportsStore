@@ -58,11 +58,12 @@ body {
     margin: 20px- 0px;
 }
 •social-container {
-    border: 1px- solidv■#DDD：
+    border: 1px- solidv■#DDD;
     border-radius: • 50%; display: inline-flex;
     justify-content: center; align-items: • center;
     margin: 0px• 5px;
-}height: 40px;
+    
+}
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {

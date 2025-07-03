@@ -1,69 +1,274 @@
 <%- include('layout/header') %>
 
-<main class="max-w-7xl mx-auto px-4 pt-24 pb-12">
-    <h1 class="text-3xl font-bold text-gray-800 mb-8">Shopping Cart</h1>
-
-    <% if (cartItems.length === 0) { %>
-        <div class="text-center py-12">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-400 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="8" cy="21" r="1"></circle>
-                <circle cx="19" cy="21" r="1"></circle>
-                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
-            </svg>
-            <h2 class="text-xl font-semibold text-gray-700 mb-2">Your cart is empty</h2>
-            <p class="text-gray-500 mb-4">Looks like you haven't added any items to your cart yet.</p>
-            <a href="/" class="inline-block bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition-colors">
-                Continue Shopping
-            </a>
+<main class="pt-20">
+    <!-- Hero Section -->
+    <section class="hero-section relative py-16 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80"></div>
         </div>
-    <% } else { %>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="lg:col-span-2">
-                <div class="bg-white rounded-lg shadow-md">
-                    <% cartItems.forEach(item => { %>
-                        <div class="p-6 border-b border-gray-200 flex items-center">
-                            <img src="<%= item.image %>" alt="<%= item.name %>" class="w-24 h-24 object-cover rounded-md">
-                            <div class="ml-6 flex-1">
-                                <h3 class="text-lg font-semibold text-gray-800"><%= item.name %></h3>
-                                <p class="text-gray-600 mt-1"><%= item.description %></p>
-                                <div class="mt-2 flex items-center justify-between">
-                                    <span class="text-red-500 font-bold">$<%= item.price %></span>
+        
+        <div class="hero-content relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                SHOPPING <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">CART</span>
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto">
+                Review your items and proceed to checkout
+            </p>
+        </div>
+    </section>
+
+    <!-- Cart Content -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <% if (cartItems.length === 0) { %>
+                <!-- Empty Cart -->
+                <div class="text-center py-20 fade-in-up">
+                    <div class="empty-cart-icon mb-8">
+                        <i class="fas fa-shopping-cart text-8xl text-gray-300"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-700 mb-4">Your cart is empty</h2>
+                    <p class="text-gray-600 mb-8 text-lg">Looks like you haven't added any items to your cart yet.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="/shop" class="btn-primary text-lg px-8 py-4">
+                            <i class="fas fa-shopping-bag mr-3"></i>
+                            Start Shopping
+                        </a>
+                        <a href="/" class="btn-secondary text-lg px-8 py-4">
+                            <i class="fas fa-home mr-3"></i>
+                            Go Home
+                        </a>
+                    </div>
+                </div>
+            <% } else { %>
+                <!-- Cart Items -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2">
+                        <div class="cart-items-container">
+                            <% cartItems.forEach((item, index) => { %>
+                                <div class="cart-item fade-in-up" style="animation-delay: <%= index * 0.1 %>s;">
                                     <div class="flex items-center">
-                                        <span class="text-gray-600">Quantity: <%= item.quantity %></span>
+                                        <div class="cart-item-image">
+                                            <img src="<%= item.image %>" alt="<%= item.name %>" class="w-24 h-24 object-cover rounded-lg">
+                                        </div>
+                                        <div class="cart-item-details ml-6 flex-1">
+                                            <h3 class="text-xl font-semibold text-gray-800 mb-2"><%= item.name %></h3>
+                                            <p class="text-gray-600 mb-3"><%= item.description %></p>
+                                            <div class="flex items-center justify-between">
+                                                <div class="price text-2xl font-bold">$<%= item.price %></div>
+                                                <div class="quantity-controls flex items-center space-x-4">
+                                                    <span class="text-gray-600 font-medium">Quantity: <%= item.quantity %></span>
+                                                    <div class="flex items-center space-x-2">
+                                                        <button class="quantity-btn" onclick="updateQuantity(<%= item.id %>, <%= item.quantity - 1 %>)">
+                                                            <i class="fas fa-minus"></i>
+                                                        </button>
+                                                        <span class="quantity-display px-3 py-1 bg-gray-100 rounded-lg font-medium">
+                                                            <%= item.quantity %>
+                                                        </span>
+                                                        <button class="quantity-btn" onclick="updateQuantity(<%= item.id %>, <%= item.quantity + 1 %>)">
+                                                            <i class="fas fa-plus"></i>
+                                                        </button>
+                                                    </div>
+                                                    <button class="remove-btn" onclick="removeItem(<%= item.id %>)">
+                                                        <i class="fas fa-trash text-red-500 hover:text-red-700"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="lg:col-span-1">
+                        <div class="cart-summary fade-in-right">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                                <i class="fas fa-receipt mr-3 text-primary"></i>
+                                Order Summary
+                            </h2>
+                            
+                            <div class="space-y-4 mb-6">
+                                <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                    <span class="text-gray-600">Subtotal</span>
+                                    <span class="font-semibold">$<%= total %></span>
+                                </div>
+                                <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                    <span class="text-gray-600">Shipping</span>
+                                    <span class="text-green-600 font-semibold">Free</span>
+                                </div>
+                                <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                                    <span class="text-gray-600">Tax</span>
+                                    <span class="font-semibold">$<%= (parseFloat(total) * 0.08).toFixed(2) %></span>
+                                </div>
+                                <div class="flex justify-between items-center py-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg px-4">
+                                    <span class="text-lg font-bold text-gray-800">Total</span>
+                                    <span class="text-2xl font-bold text-gradient">$<%= (parseFloat(total) * 1.08).toFixed(2) %></span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <a href="/checkout" class="btn-primary w-full text-lg py-4 flex items-center justify-center">
+                                    <i class="fas fa-credit-card mr-3"></i>
+                                    Proceed to Checkout
+                                </a>
+                                <a href="/shop" class="btn-secondary w-full text-lg py-4 flex items-center justify-center">
+                                    <i class="fas fa-arrow-left mr-3"></i>
+                                    Continue Shopping
+                                </a>
+                            </div>
+                            
+                            <!-- Security Badge -->
+                            <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                                <div class="flex items-center">
+                                    <i class="fas fa-shield-alt text-green-600 mr-3"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-green-800">Secure Checkout</h4>
+                                        <p class="text-sm text-green-600">Your payment information is protected</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <% }); %>
-                </div>
-            </div>
-
-            <div class="lg:col-span-1">
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-4">Order Summary</h2>
-                    <div class="space-y-3">
-                        <div class="flex justify-between text-gray-600">
-                            <span>Subtotal</span>
-                            <span>$<%= total %></span>
-                        </div>
-                        <div class="flex justify-between text-gray-600">
-                            <span>Shipping</span>
-                            <span>Free</span>
-                        </div>
-                        <div class="border-t pt-3 mt-3">
-                            <div class="flex justify-between text-lg font-semibold">
-                                <span>Total</span>
-                                <span>$<%= total %></span>
-                            </div>
-                        </div>
                     </div>
-                    <a href="/checkout" class="w-full block bg-red-500 text-white text-center mt-6 py-3 rounded-lg hover:bg-red-700 transition-colors">
-                        Proceed to Checkout
-                    </a>
                 </div>
-            </div>
+            <% } %>
         </div>
-    <% } %>
+    </section>
 </main>
+
+<style>
+.empty-cart-icon {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.cart-items-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.cart-summary {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 100px;
+}
+
+.quantity-btn {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.remove-btn:hover {
+    background: rgba(239, 68, 68, 0.1);
+    transform: scale(1.1);
+}
+</style>
+
+<script>
+function updateQuantity(productId, newQuantity) {
+    if (newQuantity < 1 || newQuantity > 99) return;
+    
+    fetch('/cart/update', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            productId: productId,
+            newQuantity: newQuantity
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            location.reload();
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+function removeItem(productId) {
+    if (confirm('Are you sure you want to remove this item?')) {
+        fetch('/cart/delete', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                productId: productId
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                location.reload();
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+</script>
 
 <%- include('layout/footer') %>

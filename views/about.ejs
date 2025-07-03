@@ -1,27 +1,323 @@
 <%- include('layout/header') %>
 
-<main class="max-w-7xl mx-auto px-4 pt-20 pb-12">
-    <section class="text-center my-8">
-        <h1 class="text-4xl font-bold text-red-500">About Us</h1>
-        <p class="mt-4 text-gray-600">We are passionate about providing top-quality sports equipment.</p>
+<main class="pt-20">
+    <!-- Hero Section -->
+    <section class="hero-section relative py-20 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80"></div>
+        </div>
+        
+        <div class="hero-content relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                ABOUT <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">SPORTSSTORE</span>
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto">
+                We are passionate about providing top-quality sports equipment for champions
+            </p>
+        </div>
     </section>
 
-    <section class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="product-card bg-white box-shadow 8px 8px 8px 8px rounded-lg p-4 transition-transform hover:text-gray-800">
-            <img src="/images/image1.png" alt="About Us" class="w-full h-auto rounded-lg shadow-md">
+    <!-- Mission Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-left">
+                    <div class="about-image-container">
+                        <img src="/images/image1.png" alt="About SportsStore" class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                
+                <div class="fade-in-right">
+                    <div class="section-header text-left">
+                        <h2>Our Mission</h2>
+                        <p>Empowering athletes to reach their full potential</p>
+                    </div>
+                    
+                    <div class="space-y-6 mt-8">
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            At SportsStore, we believe that every athlete deserves access to premium equipment that enhances their performance and fuels their passion. Our mission is to provide the highest quality sports gear while maintaining affordability and accessibility.
+                        </p>
+                        
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Whether you're a professional athlete, a weekend warrior, or just starting your fitness journey, we're here to support you with the best equipment, expert advice, and exceptional service.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <h2 class="text-2xl font-semibold text-gray-800">Our Mission</h2>
-            <p class="mt-4 text-gray-600">At Sports Store, we strive to equip athletes with the best gear to enhance their performance.</p>
-            <h2 class="text-2xl font-semibold text-gray-800 mt-6">Why Choose Us?</h2>
-            <ul class="mt-4 text-gray-600 list-disc list-inside">
-                <li>High-quality, durable products</li>
-                <li>Affordable prices</li>
-                <li>Fast and reliable shipping</li>
-                <li>Excellent customer support</li>
-            </ul>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header fade-in-up">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+                <div class="value-card fade-in-up">
+                    <div class="value-icon">
+                        <i class="fas fa-medal text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Quality</h3>
+                    <p class="text-gray-600">We never compromise on quality. Every product in our store meets the highest standards.</p>
+                </div>
+                
+                <div class="value-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="value-icon">
+                        <i class="fas fa-heart text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Passion</h3>
+                    <p class="text-gray-600">We're passionate about sports and committed to helping athletes achieve their goals.</p>
+                </div>
+                
+                <div class="value-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="value-icon">
+                        <i class="fas fa-users text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Community</h3>
+                    <p class="text-gray-600">We build and support a community of athletes who inspire and motivate each other.</p>
+                </div>
+                
+                <div class="value-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Innovation</h3>
+                    <p class="text-gray-600">We constantly seek the latest innovations to provide cutting-edge sports equipment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header fade-in-up">
+                <h2>Why Choose SportsStore?</h2>
+                <p>Experience the difference with our premium service</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+                <div class="fade-in-left">
+                    <div class="space-y-8">
+                        <div class="feature-item">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-award text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">High-Quality Products</h3>
+                                <p class="text-gray-600">We partner with the world's leading sports brands to offer you the best equipment available.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-dollar-sign text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Affordable Prices</h3>
+                                <p class="text-gray-600">Get premium sports equipment at competitive prices with regular discounts and offers.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-shipping-fast text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Fast Shipping</h3>
+                                <p class="text-gray-600">Free shipping on orders over $50 with delivery within 24-48 hours to most locations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in-right">
+                    <div class="space-y-8">
+                        <div class="feature-item">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-headset text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Expert Support</h3>
+                                <p class="text-gray-600">Our team of sports enthusiasts is always ready to help you choose the perfect equipment.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-shield-alt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Secure Shopping</h3>
+                                <p class="text-gray-600">Shop with confidence knowing your payment information is protected with bank-level security.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-undo text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Easy Returns</h3>
+                                <p class="text-gray-600">30-day money-back guarantee with hassle-free returns if you're not completely satisfied.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 px-6 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="stat-card fade-in-up">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                
+                <div class="stat-card fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Products</div>
+                </div>
+                
+                <div class="stat-card fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+                
+                <div class="stat-card fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="cta-card fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">Ready to Get Started?</h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Join thousands of athletes who trust SportsStore for their equipment needs. Start your journey to greatness today.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/shop" class="btn-primary text-lg px-8 py-4">
+                        <i class="fas fa-shopping-bag mr-3"></i>
+                        Shop Now
+                    </a>
+                    <a href="/signup" class="btn-secondary text-lg px-8 py-4">
+                        <i class="fas fa-user-plus mr-3"></i>
+                        Join Now
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 </main>
+
+<style>
+.about-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.about-image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.value-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 0 auto 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.feature-icon-small {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 30px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.cta-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 48px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+</style>
 
 <%- include('layout/footer') %>

@@ -1,43 +1,343 @@
-<footer class="bg-gray-800 text-white mt-16">
-    <div class="max-w-7xl mx-auto px-4 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-                <h3 class="text-lg font-semibold mb-4">About RedStore</h3>
-                <p class="text-gray-400">Professional sports and athletic equipment for athletes of all levels.</p>
+<footer class="footer-section">
+    <div class="footer-content">
+        <div class="footer-grid">
+            <!-- Company Info -->
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="/images/logo.png" alt="SportsStore Logo" class="h-12">
+                    <!-- <span class="text-2xl font-bold text-gradient">SportsStore</span> -->
+                </div>
+                <p class="footer-description">
+                    Professional sports and athletic equipment for athletes of all levels. 
+                    Gear up for victory with our premium selection.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
             </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Shipping Info</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Returns</a></li>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="/about" class="footer-link">About Us</a></li>
+                    <li><a href="#" class="footer-link">Contact</a></li>
+                    <li><a href="#" class="footer-link">Shipping Info</a></li>
+                    <li><a href="#" class="footer-link">Returns</a></li>
+                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-link">Terms of Service</a></li>
                 </ul>
             </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Categories</h3>
-                <ul class="space-y-2">
-                    <li><a href="#" class="text-gray-400 hover:text-white">Sneakers</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Clothing</a></li>
-                    <li><a href="#" class="text-gray-400 hover:text-white">Watches</a></li>
-                    <!-- <li><a href="#" class="text-gray-400 hover:text-white">Fitness</a></li> -->
+
+            <!-- Categories -->
+            <div class="footer-section">
+                <h3 class="footer-title">Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="/shop?category=sneakers" class="footer-link">Sneakers</a></li>
+                    <li><a href="/shop?category=clothing" class="footer-link">Clothing</a></li>
+                    <li><a href="/shop?category=watches" class="footer-link">Watches</a></li>
+                    <li><a href="/shop?category=fitness" class="footer-link">Fitness</a></li>
+                    <li><a href="/shop?category=accessories" class="footer-link">Accessories</a></li>
+                    <li><a href="/shop" class="footer-link">All Products</a></li>
                 </ul>
             </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
-                <p class="text-gray-400 mb-4">Subscribe to get special offers and updates.</p>
-                <form class="flex">
-                    <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-md text-gray-900">
-                    <button type="submit" class="bg-red-500 flex-1 px-4 py-2 rounded-r-md hover:bg-red-700">
-                        Subscribe
-                    </button>
+
+            <!-- Newsletter -->
+            <div class="footer-section">
+                <h3 class="footer-title">Stay Updated</h3>
+                <p class="footer-description">
+                    Subscribe to get special offers, new product alerts, and exclusive deals.
+                </p>
+                <form class="newsletter-form">
+                    <div class="newsletter-input-group">
+                        <input type="email" placeholder="Your email address" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
                 </form>
-            </div>      
+                <div class="newsletter-benefits">
+                    <div class="benefit-item">
+                        <i class="fas fa-gift text-primary"></i>
+                        <span>Exclusive Offers</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-bell text-primary"></i>
+                        <span>New Product Alerts</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-percent text-primary"></i>
+                        <span>Special Discounts</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <footer class="bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-center p-4 mt-10">
-            <p>© 2025 Sports Store. All Rights Reserved.</p>
-        </footer>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p class="copyright">
+                    © 2025 SportsStore. All Rights Reserved. | 
+                    <a href="#" class="footer-link">Privacy Policy</a> | 
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </p>
+                <div class="payment-methods">
+                    <span class="payment-label">We Accept:</span>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-bitcoin"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
+
+<style>
+.footer-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 60px 0 20px 0;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 7xl;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo span {
+    margin-left: 12px;
+}
+
+.footer-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.footer-link:hover {
+    color: white;
+    transform: translateX(5px);
+}
+
+.footer-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover::before {
+    width: 100%;
+}
+
+.newsletter-form {
+    margin-bottom: 20px;
+}
+
+.newsletter-input-group {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    background: transparent;
+    color: white;
+    outline: none;
+}
+
+.newsletter-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter-btn {
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: scale(1.05);
+}
+
+.newsletter-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+}
+
+.payment-methods {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.payment-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 8px;
+}
+
+.payment-icons i {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+}
+
+.payment-icons i:hover {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+// Newsletter form submission
+document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = this.querySelector('.newsletter-input').value;
+    
+    // Show success message
+    const btn = this.querySelector('.newsletter-btn');
+    const originalContent = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-check"></i>';
+    btn.style.background = 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)';
+    
+    setTimeout(() => {
+        btn.innerHTML = originalContent;
+        btn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+        this.querySelector('.newsletter-input').value = '';
+    }, 2000);
+});
+</script>
 </body>
 </html>

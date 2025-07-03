@@ -1,0 +1,24 @@
+<%- include('layout/header') %>
+<main class="pt-20 px-6">
+  <section class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8">Admin Dashboard</h1>
+    <div class="grid grid-cols-2 gap-8 mb-8">
+      <div class="bg-white rounded shadow p-6 text-center">
+        <div class="text-2xl font-bold"><%= orderCount %></div>
+        <div class="text-gray-600">Total Orders</div>
+      </div>
+      <div class="bg-white rounded shadow p-6 text-center">
+        <div class="text-2xl font-bold"><%= customerCount %></div>
+        <div class="text-gray-600">Total Customers</div>
+      </div>
+    </div>
+    <div class="flex gap-6">
+      <a href="/admin/orders" class="btn-primary flex-1 text-center py-3">Manage Orders</a>
+      <a href="/admin/customers" class="btn-primary flex-1 text-center py-3">Manage Customers</a>
+    </div>
+    <div class="mt-8 text-right">
+      <a href="/admin/logout" class="text-red-600 hover:underline">Logout</a>
+    </div>
+  </section>
+</main>
+<%- include('layout/footer') %> 

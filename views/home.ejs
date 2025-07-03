@@ -1,75 +1,297 @@
 <%- include('layout/header') %>
 
-<main class="max-w-7xl mx-auto px-4 pt-20 pb-12">
-
+<main class="pt-20">
     <!-- Hero Section -->
-    <section class="relative w-[100%] h-[500px] bg-gray-100 flex items-center justify-center">
-        <img src="/images/image1.png" alt="Sports Action" class="absolute inset-0 w-full h-full object-cover opacity-80">
-        <div class="relative z-10 text-center text-white">
-            <h1 class="text-5xl font-bold drop-shadow-lg">Gear Up for Victory!</h1>
-            <p class="mt-4 text-lg drop-shadow-md">Explore premium sports equipment for peak performance</p><br>
-            <a href="/shop" class="bg-red-500 text-white px-6 py-3 rounded-lg text-lg hover:bg-red-700 transition">
-                Shop Now
-            </a>
+    <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="/images/image1.png" alt="Sports Action" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80"></div>
+        </div>
+        
+        <div class="hero-content relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+                GEAR UP FOR 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">VICTORY!</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto">
+                Discover premium sports equipment designed for champions. Elevate your performance with our curated collection.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="/shop" class="btn-primary text-lg px-8 py-4">
+                    <i class="fas fa-shopping-bag mr-3"></i>
+                    Shop Now
+                </a>
+                <a href="/about" class="btn-secondary text-lg px-8 py-4">
+                    <i class="fas fa-info-circle mr-3"></i>
+                    Learn More
+                </a>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 animate-bounce">
+            <div class="w-16 h-16 bg-gradient-to-r from-accent to-primary rounded-full opacity-20"></div>
+        </div>
+        <div class="absolute bottom-20 right-10 animate-bounce" style="animation-delay: 1s;">
+            <div class="w-12 h-12 bg-gradient-to-r from-warning to-secondary rounded-full opacity-20"></div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header fade-in-up">
+                <h2>Why Choose SportsStore?</h2>
+                <p>Experience the difference with our premium selection and exceptional service</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="feature-card fade-in-left">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Premium Quality</h3>
+                    <p class="text-gray-600">Only the finest sports equipment from top brands worldwide.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Fast Delivery</h3>
+                    <p class="text-gray-600">Get your gear delivered to your doorstep within 24-48 hours.</p>
+                </div>
+                
+                <div class="feature-card fade-in-right">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">24/7 Support</h3>
+                    <p class="text-gray-600">Our expert team is always ready to help you make the right choice.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Categories Section -->
-    <section class="mt-16 text-center">
-        <h2 class="text-3xl font-bold text-gray-800">Shop by Category</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-            <a href="/shop?category=football" class="bg-white shadow-md p-6 rounded-lg hover:scale-105 transition">
-                <img src="/images/category-2.jpg" alt="Football" class="h-32 mx-auto">
-                <h3 class="mt-4 text-xl font-semibold text-gray-700">Sneakers</h3>
-            </a>
-            <a href="/shop?category=basketball" class="bg-white shadow-md p-6 rounded-lg hover:scale-105 transition">
-                <img src="/images/category-3.jpg" alt="Basketball" class="h-32 mx-auto">
-                <h3 class="mt-4 text-xl font-semibold text-gray-700">Clothing</h3>
-            </a>
-            <a href="/shop?category=fitness" class="bg-white shadow-md p-6 rounded-lg hover:scale-105 transition">
-                <img src="/images/product-9.jpg" alt="Fitness" class="h-32 mx-auto">
-                <h3 class="mt-4 text-xl font-semibold text-gray-700">Watches</h3>
-            </a>
+    <section class="py-20 px-6 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header fade-in-up">
+                <h2>Shop by Category</h2>
+                <p>Find exactly what you need for your sport</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <a href="/shop?category=football" class="category-card group fade-in-left">
+                    <div class="category-image">
+                        <img src="/images/category-2.jpg" alt="Sneakers" class="w-full h-48 object-cover rounded-lg mb-6">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gradient">Sneakers</h3>
+                    <p class="text-gray-600 mb-4">Premium athletic footwear for every sport</p>
+                    <div class="category-arrow">
+                        <i class="fas fa-arrow-right text-xl"></i>
+                    </div>
+                </a>
+                
+                <a href="/shop?category=basketball" class="category-card group fade-in-up">
+                    <div class="category-image">
+                        <img src="/images/category-3.jpg" alt="Clothing" class="w-full h-48 object-cover rounded-lg mb-6">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gradient">Clothing</h3>
+                    <p class="text-gray-600 mb-4">High-performance sportswear for champions</p>
+                    <div class="category-arrow">
+                        <i class="fas fa-arrow-right text-xl"></i>
+                    </div>
+                </a>
+                
+                <a href="/shop?category=fitness" class="category-card group fade-in-right">
+                    <div class="category-image">
+                        <img src="/images/product-9.jpg" alt="Watches" class="w-full h-48 object-cover rounded-lg mb-6">
+                        <div class="category-overlay"></div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gradient">Watches</h3>
+                    <p class="text-gray-600 mb-4">Smart fitness trackers and sports watches</p>
+                    <div class="category-arrow">
+                        <i class="fas fa-arrow-right text-xl"></i>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Featured Products Section -->
-    <section class="mt-16">
-        <h2 class="text-3xl font-bold text-gray-800 text-center">Featured Products</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-            <% products.forEach(product => { %>
-                <div class="bg-white shadow-md rounded-lg p-4 hover:scale-105 transition">
-                    <img src="<%= product.image %>" alt="<%= product.name %>" class="w-full h-48 object-cover rounded-md">
-                    <h3 class="text-lg font-semibold text-gray-800 mt-4 text-center"><%= product.name %></h3>
-                    <span class="text-xl font-bold text-red-500 block mt-2 text-center">$<%= product.price %></span>
-                    <a href="/shop/<%= product.id %>" class="block bg-red-500 text-white px-4 py-2 rounded-lg text-center mt-4 hover:bg-red-700">View Product</a>
-                </div>
-            <% }); %>
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header fade-in-up">
+                <h2>Featured Products</h2>
+                <p>Handpicked items that our customers love</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                <% products.slice(0, 6).forEach((product, index) => { %>
+                    <div class="product-card fade-in-up" style="animation-delay: <%= index * 0.1 %>s;">
+                        <div class="product-image-container">
+                            <img src="<%= product.image %>" alt="<%= product.name %>" class="w-full h-64 object-cover">
+                            <div class="product-overlay">
+                                <div class="product-actions">
+                                    <form action="/cart/add/<%= product.id %>" method="POST" class="w-full">
+                                        <button type="submit" class="btn-primary w-full mb-2">
+                                            <i class="fas fa-cart-plus mr-2"></i>
+                                            Add to Cart
+                                        </button>
+                                    </form>
+                                    <form action="/buy/<%= product.id %>" method="POST" class="w-full">
+                                        <button type="submit" class="btn-accent w-full">
+                                            <i class="fas fa-bolt mr-2"></i>
+                                            Buy Now
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-info mt-4">
+                            <h3 class="text-lg font-semibold mb-2"><%= product.name %></h3>
+                            <p class="text-gray-600 text-sm mb-3"><%= product.description %></p>
+                            <div class="price text-2xl font-bold">$<%= product.price %></div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="/shop" class="btn-primary text-lg px-8 py-4">
+                    <i class="fas fa-eye mr-3"></i>
+                    View All Products
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="mt-16 text-center bg-gray-50 py-12">
-        <h2 class="text-3xl font-bold text-gray-800">What Our Customers Say</h2>
-        <div class="mt-8 flex flex-col md:flex-row gap-6 justify-center">
-            <div class="bg-white shadow-md p-6 rounded-lg w-80">
-                <p class="text-gray-700">"Absolutely love the quality of these products! Perfect for my training sessions."</p>
-                <span class="block mt-4 font-semibold text-gray-800">– John D.</span>
+    <section class="py-20 px-6 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-header fade-in-up">
+                <h2>What Our Champions Say</h2>
+                <p>Real feedback from real athletes</p>
             </div>
-            <div class="bg-white shadow-md p-6 rounded-lg w-80">
-                <p class="text-gray-700">"Fast delivery and amazing customer support. Highly recommended!"</p>
-                <span class="block mt-4 font-semibold text-gray-800">– Sarah W.</span>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                <div class="testimonial-card fade-in-left">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            J
+                        </div>
+                        <div>
+                            <h4 class="font-bold">John Davis</h4>
+                            <p class="text-sm text-gray-600">Professional Athlete</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"The quality of equipment I found here is unmatched. It's like they read my mind about what I need for peak performance!"</p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in-right">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-warning to-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            S
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Wilson</h4>
+                            <p class="text-sm text-gray-600">Fitness Trainer</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"Fast delivery and amazing customer support. They helped me choose the perfect gear for my training sessions."</p>
+                    <div class="flex text-yellow-400 mt-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-
-    <section class="mt-16 text-center">
-        <h2 class="text-3xl font-bold text-gray-800">Ready to Elevate Your Game?</h2>
-        <p class="mt-4 text-gray-600">Find the best sports equipment tailored to your needs.</p>
-        <a href="/shop" class="mt-6 inline-block bg-red-500 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition-all">Start Shopping</a>
+    <!-- CTA Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="cta-card fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient">Ready to Elevate Your Game?</h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Join thousands of athletes who trust SportsStore for their equipment needs. Start your journey to greatness today.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/shop" class="btn-primary text-lg px-8 py-4">
+                        <i class="fas fa-rocket mr-3"></i>
+                        Start Shopping
+                    </a>
+                    <a href="/signup" class="btn-secondary text-lg px-8 py-4">
+                        <i class="fas fa-user-plus mr-3"></i>
+                        Join Now
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
-
 </main>
+
+<style>
+    .feature-card {
+        @apply bg-white bg-opacity-90 backdrop-blur-sm rounded-2xl p-8 text-center border border-white border-opacity-20 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-2xl;
+    }
+    
+    .feature-icon {
+        @apply w-20 h-20 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center text-white mx-auto mb-6;
+    }
+    
+    .category-image {
+        @apply relative overflow-hidden rounded-lg;
+    }
+    
+    .category-overlay {
+        @apply absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity duration-300;
+    }
+    
+    .category-card:hover .category-overlay {
+        @apply opacity-100;
+    }
+    
+    .category-arrow {
+        @apply text-primary transition-transform duration-300;
+    }
+    
+    .category-card:hover .category-arrow {
+        @apply transform translate-x-2;
+    }
+    
+    .product-image-container {
+        @apply relative overflow-hidden rounded-lg;
+    }
+    
+    .product-overlay {
+        @apply absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300;
+    }
+    
+    .product-card:hover .product-overlay {
+        @apply opacity-100;
+    }
+    
+    .product-actions {
+        @apply w-full p-4;
+    }
+    
+    .cta-card {
+        @apply bg-white bg-opacity-90 backdrop-blur-sm rounded-3xl p-12 border border-white border-opacity-20 shadow-2xl;
+    }
+</style>
 
 <%- include('layout/footer') %>

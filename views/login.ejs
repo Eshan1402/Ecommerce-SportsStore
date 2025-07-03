@@ -1,44 +1,293 @@
 <%- include('layout/header') %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/login.css">
-</head>
-<body>
+<main class="pt-20">
+    <!-- Hero Section -->
+    <section class="hero-section relative py-16 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80"></div>
+        </div>
+        
+        <div class="hero-content relative z-10 text-center text-white max-w-4xl mx-auto px-6">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                WELCOME <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-400">BACK</span>
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto">
+                Sign in to your account and continue your shopping journey
+            </p>
+        </div>
+    </section>
 
-    <div class="wrapper">
-        <div class="container">
-            <!-- Hello Friend Panel -->
-            <div class="hello-panel">
-                <h2>Hello, Friend!</h2>
-                <p>Keep connected with us by logging into your account.</p>
-            </div>
+    <!-- Login Form Section -->
+    <section class="py-20 px-6">
+        <div class="max-w-md mx-auto">
+            <div class="form-container fade-in-up">
+                <div class="text-center mb-8">
+                    <div class="login-icon mb-6">
+                        <i class="fas fa-user-circle text-6xl text-gradient"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Sign In</h2>
+                    <p class="text-gray-600">Welcome back! Please sign in to your account.</p>
+                </div>
 
-            <!-- Login Form -->
-            <div class="login-form">
-                <h2>Login</h2>
-                <form action="/login" method="POST">
-                    <input type="email" name="email" placeholder="Email" required>
-                    <input type="password" name="password" placeholder="Password" required>
-                    <button type="submit">Login</button>
+                <form action="/login" method="POST" class="space-y-6">
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope mr-2"></i>
+                            Email Address
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email"
+                            name="email" 
+                            class="form-input" 
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password" class="form-label">
+                            <i class="fas fa-lock mr-2"></i>
+                            Password
+                        </label>
+                        <div class="password-input-group">
+                            <input 
+                                type="password" 
+                                id="password"
+                                name="password" 
+                                class="form-input pr-12" 
+                                placeholder="Enter your password"
+                                required
+                            >
+                            <button type="button" class="password-toggle" onclick="togglePassword()">
+                                <i class="fas fa-eye" id="password-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <label class="checkbox-container">
+                            <input type="checkbox" class="form-checkbox">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="text-primary hover:text-secondary transition-colors">
+                            Forgot Password?
+                        </a>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full text-lg py-4">
+                        <i class="fas fa-sign-in-alt mr-3"></i>
+                        Sign In
+                    </button>
                 </form>
-                <p>Don't have an account? <a href="/signup">Sign up</a></p>
+
+                <div class="divider my-8">
+                    <span>or continue with</span>
+                </div>
+
+                <div class="social-login space-y-4">
+                    <button class="social-btn google-btn">
+                        <i class="fab fa-google mr-3"></i>
+                        Continue with Google
+                    </button>
+                    <button class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f mr-3"></i>
+                        Continue with Facebook
+                    </button>
+                </div>
+
+                <div class="text-center mt-8">
+                    <p class="text-gray-600">
+                        Don't have an account? 
+                        <a href="/signup" class="text-primary hover:text-secondary font-semibold transition-colors">
+                            Sign up here
+                        </a>
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+</main>
 
+<style>
+.login-icon {
+    animation: float 3s ease-in-out infinite;
+}
 
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.password-input-group {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: #667eea;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.form-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 18px;
+    width: 18px;
+    background-color: #f3f4f6;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    margin-right: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-container:hover .checkmark {
+    background-color: #e5e7eb;
+}
+
+.form-checkbox:checked ~ .checkmark {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: #667eea;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.form-checkbox:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.divider {
+    position: relative;
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+.divider span {
+    background: white;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.social-btn {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    background: white;
+    color: #374151;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.google-btn:hover {
+    border-color: #ea4335;
+    color: #ea4335;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(234, 67, 53, 0.2);
+}
+
+.facebook-btn:hover {
+    border-color: #1877f2;
+    color: #1877f2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.2);
+}
+</style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const container = document.querySelector(".container");
-        container.classList.add("show-animation");
-    });
+function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    const passwordIcon = document.getElementById('password-icon');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        passwordIcon.classList.remove('fa-eye');
+        passwordIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        passwordIcon.classList.remove('fa-eye-slash');
+        passwordIcon.classList.add('fa-eye');
+    }
+}
+
+// Form submission animation
+document.querySelector('form').addEventListener('submit', function(e) {
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Signing In...';
+    submitBtn.disabled = true;
+    
+    // Re-enable after 3 seconds (in case of error)
+    setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+    }, 3000);
+});
 </script>
+
 <%- include('layout/footer') %>
-</body>
-</html>
+</rewritten_file>

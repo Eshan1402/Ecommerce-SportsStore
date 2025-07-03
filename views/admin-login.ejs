@@ -1,0 +1,21 @@
+<%- include('layout/header') %>
+<main class="pt-20 px-6">
+  <section class="max-w-md mx-auto">
+    <h1 class="text-3xl font-bold mb-8">Admin Login</h1>
+    <% if (typeof error !== 'undefined') { %>
+      <div class="bg-red-100 text-red-700 px-4 py-2 rounded mb-4"><%= error %></div>
+    <% } %>
+    <form action="/admin/login" method="POST" class="space-y-6">
+      <div>
+        <label for="email" class="block font-semibold mb-1">Email</label>
+        <input type="email" id="email" name="email" class="form-input w-full" required />
+      </div>
+      <div>
+        <label for="password" class="block font-semibold mb-1">Password</label>
+        <input type="password" id="password" name="password" class="form-input w-full" required />
+      </div>
+      <button type="submit" class="btn-primary w-full py-3">Login</button>
+    </form>
+  </section>
+</main>
+<%- include('layout/footer') %> 

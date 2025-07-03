@@ -1,0 +1,50 @@
+<%- include('layout/header') %>
+<main class="pt-20 px-6">
+  <section class="max-w-5xl mx-auto">
+    <h1 class="text-3xl font-bold mb-8">All Orders</h1>
+    <% if (orders.length === 0) { %>
+      <p class="text-gray-600">No orders found.</p>
+    <% } else { %>
+      <div class="space-y-8">
+        <% orders.forEach(order => { %>
+          <div class="border rounded-lg p-6 shadow bg-white">
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-semibold">Order #<%= order._id %></span>
+              <span class="text-sm text-gray-500"><%= order.createdAt.toLocaleString() %></span>
+            </div>
+            <div class="mb-2">
+              <span class="text-sm font-medium">Customer:</span>
+              <span><%= order.customer ? order.customer.username : 'N/A' %> (<%= order.customer ? order.customer.email : '' %>)</span>
+            </div>
+            <div class="mb-2">
+              <span class="text-sm font-medium">Status:</span>
+              <form action="/admin/orders/<%= order._id %>/status" method="POST" class="inline">
+                <select name="status" class="form-input inline-block w-auto">
+                  <option value="Processing" <%= order.status === 'Processing' ? 'selected' : '' %>>Processing</option>
+                  <option value="Shipped" <%= order.status === 'Shipped' ? 'selected' : '' %>>Shipped</option>
+                  <option value="Delivered" <%= order.status === 'Delivered' ? 'selected' : '' %>>Delivered</option>
+                </select>
+                <button type="submit" class="btn-primary py-1 px-3 ml-2">Update</button>
+              </form>
+            </div>
+            <ul class="mb-2">
+              <% order.items.forEach(item => { %>
+                <li class="flex items-center gap-4 py-1">
+                  <img src="/images/<%= item.image %>" alt="<%= item.name %>" class="w-12 h-12 object-cover rounded" />
+                  <span class="flex-1"><%= item.name %></span>
+                  <span>x<%= item.quantity %></span>
+                  <span class="font-semibold">$<%= item.price.toFixed(2) %></span>
+                </li>
+              <% }) %>
+            </ul>
+            <div class="text-right font-bold text-lg">Total: $<%= order.total.toFixed(2) %></div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+    <div class="mt-8 text-right">
+      <a href="/admin/dashboard" class="text-primary hover:underline">Back to Dashboard</a>
+    </div>
+  </section>
+</main>
+<%- include('layout/footer') %> 
